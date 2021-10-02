@@ -19,4 +19,14 @@ class MyServiceTest {
     void checkTransactional() {
         myService.checkTransactional();
     }
+
+    @Test
+    void rollbackTransaction() {
+        myService.checkRollback();
+    }
+
+    @Test
+    void requiredNewTransaction() {
+        myService.checkRequiredNew();
+    }
 }

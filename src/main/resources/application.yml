@@ -5,6 +5,9 @@ server:
       enabled: always
 
 spring:
+  profiles:
+    include: "console-logging"
+
   datasource:
     jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -20,6 +23,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
+    show-sql: true
 
 logging:
   level:

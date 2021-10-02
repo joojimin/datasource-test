@@ -7,11 +7,13 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Setter
 @Getter
+@ToString(of = {"id", "name", "address"})
 public class MemberInfo {
 
     @Id

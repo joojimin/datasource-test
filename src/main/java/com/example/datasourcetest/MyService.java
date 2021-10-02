@@ -7,9 +7,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class MyService {
@@ -46,12 +48,33 @@ public class MyService {
         memberInfoRepository.save(new MemberInfo("주지민2", "123123"));
         memberInfoRepository.save(new MemberInfo("주지민3", "123123"));
 
-        findMember1.setAddress("6666666");
-
         childMyService.test();
 
         List<MemberInfo> memberInfos = memberInfoRepository.findAll();
         memberInfos.forEach(System.out::println);
         System.out.println("hi after child");
+    }
+
+    @Transactional
+    public void checkRollback() {
+        memberInfoRepository.save(new MemberInfo("주지민2", "123123"));
+        memberInfoRepository.save(new MemberInfo("주지민3", "123123"));
+
+        childMyService.rollbackTest();
+
+        memberInfoRepository.save(new MemberInfo("주지민2", "123123"));
+        memberInfoRepository.save(new MemberInfo("주지민3", "123123"));
+    }
+
+    public void checkRequiredNew() {
+        System.out.println("============================= MyService Start =============================");
+        memberInfoRepository.save(new MemberInfo("주지민2", "123123"));
+        memberInfoRepository.save(new MemberInfo("주지민3", "123123"));
+
+        childMyService.requiredNewTest();
+
+        memberInfoRepository.save(new MemberInfo("주지민2", "123123"));
+        memberInfoRepository.save(new MemberInfo("주지민3", "123123"));
+        System.out.println("============================= MyService End =============================");
     }
 }
