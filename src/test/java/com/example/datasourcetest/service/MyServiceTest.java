@@ -1,5 +1,6 @@
-package com.example.datasourcetest;
+package com.example.datasourcetest.service;
 
+import com.example.datasourcetest.service.MyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

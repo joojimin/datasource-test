@@ -1,4 +1,4 @@
-package com.example.datasourcetest;
+package com.example.datasourcetest.service;
 
 import com.example.datasourcetest.domain.MemberInfo;
 import com.example.datasourcetest.domain.MemberInfoRepository;

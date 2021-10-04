@@ -1,4 +1,4 @@
-package com.example.datasourcetest;
+package com.example.datasourcetest.configuration;
 
 import com.zaxxer.hikari.HikariDataSource;
 import java.util.Map;

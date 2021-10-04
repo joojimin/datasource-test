@@ -1,9 +1,8 @@
-package com.example.datasourcetest;
+package com.example.datasourcetest.service;
 
 import com.example.datasourcetest.domain.MemberInfo;
 import com.example.datasourcetest.domain.MemberInfoRepository;
 import java.util.List;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,6 @@ public class ChildMyService {
 
     private final MemberInfoRepository memberInfoRepository;
 
-//    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Transactional
     public void test() {
         System.out.println("hi child service start!!");
